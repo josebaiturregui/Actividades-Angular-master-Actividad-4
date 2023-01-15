@@ -1,0 +1,21 @@
+<div  (click)="selectPokemons(pokemonsList)" class="w-[100%] h-[300px]
+                                                shadow-md shadow-gray-400 text-black cursor-pointer">
+   
+    <div class="imagen object-cover w-[100%] center bg-center bg-gradient-to-r from-sky-500 to-indigo-500">
+            <img class="flex items-center text-center object-cover" [src]="pokemonsList.sprites.front_default" [alt]="pokemonsList.name">
+    </div>
+    <div class="card-content">
+        <h3 class="flex text-center items-center"><b>{{ pokemonsList.name | uppercase }}</b></h3>
+        <div class="card-data flex center items-center px-3">
+            <h4 class="pr-[4px]"><b>Tipo:</b></h4>
+            <p class="tipos flex items-center text-bold font-[-apple-system] ml-[10px]" *ngIf="pokemonsList.types![0].type.name  ; else nodesc">
+               <b> {{ pokemonsList.types![0].type.name | titlecase }}</b>
+            </p> 
+
+            <ng-template #nodesc>{{ pokemonsList.types![0].type.name}} No hay un tipo disponible</ng-template>
+            
+            
+        </div>
+        
+    </div> 
+</div> 

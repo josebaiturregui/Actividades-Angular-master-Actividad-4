@@ -1,0 +1,96 @@
+<div class="h-[100vh] w-[100%] fondo bg-cover bg-black border-t-[1px] drop-shadow-sm">
+    <div class="contenedor bg-[#DEFDFB] rounded-[3px]">
+        <h1 class="text-teal-600 text-center bg-[#DEFDFB]  rounded-[3px]">Contacto</h1>
+        <div class=" bg-[#DEFDFB]">
+            <div class="form">
+                <form (ngSubmit)="onSave()" action="">
+        
+                    <div class="textNombre">
+                        <label for="type-name" class="text-teal-600">Nombre</label>
+                        <div  class="text-black " >
+                            
+                            <input 
+                            class="text-black w-[100%]"
+                            appRequiredInfo
+                            type="text"  
+                            placeholder="Ingresa tu nombre" 
+                            required
+                            name="nombre"
+                            [(ngModel)]="formObject.name"
+                            />
+                            
+                        </div>
+        
+                    </div>
+        
+                    <div class="border-black">
+                        <label for="Apellido" class="text-teal-600">Apellido</label>
+                            <div class="apellido-campo">
+                                <input 
+                                class="text-black w-[100%]"
+                                appRequiredInfo
+                                type="text" 
+                                placeholder="Ingresa tu apellido aqui" 
+                                required
+                                name="apellido"
+                                [(ngModel)]="formObject.lastname"
+                                />
+                                    
+                            </div>
+                        
+                    </div>
+        
+                    <div class="telefono">
+                        <label for="telefono" class="text-teal-600">Teléfono</label>
+                        <div class="outline-black">
+                            <input 
+                            class="text-black w-[100%]"
+                            appRequiredInfo
+                            type="text" 
+                            placeholder="Ingresa un número de teléfono" 
+                            required
+                            name="Teléfono"
+                            [(ngModel)]="formObject.telephone"
+                            />
+                        </div>
+                    </div>
+        
+                    <div class="email">
+                        <label for="type-email" class="text-teal-600">Correo Eléctronico</label>
+                        <div class="text-black">
+                            <input
+                            class="text-black w-[100%]"
+                            appRequiredInfo
+                            type="email" 
+                            
+                            placeholder="Ingresa aquí tu correo" 
+                            required
+                            name="email"
+                            [(ngModel)]="formObject.email"
+                            />
+                        </div>
+        
+                    </div>
+                  
+                    <div class="text-black" *ngIf="onValidateBtn"> 
+        
+                        <div class="text-black">
+                            <div class="text-black"></div>
+                            <h2 >Datos Ingresados del contacto</h2>
+                            <p class="w-[100%]">Nombre:<input type="text" class="text-black" [value]="name" disabled></p>
+                            <p class="w-[100%]">Apellido: <input type="text" class="text-black" [value]="lastname"  disabled></p>
+                            <p class="w-[100%]">Correo: <input type="text" class="text-black" [value]="email"  disabled></p>
+                            <p class="w-[100%]">Teléfono: <input type="text" class="text-black" [value]="telephone"  disabled></p>
+                        </div>
+        
+                    </div>
+        
+                    <div >
+                        <button class="bg-[#DEFDFB]  text-teal-600 w-[100%] cursor-pointer  border-teal-800" (click)="isVisibleButton()" type="submit"  >
+                           {{onValidateBtn ? 'Atrás': 'Validar'}} 
+                        </button>
+                    </div>
+        
+                </form>
+            </div>
+        </div>

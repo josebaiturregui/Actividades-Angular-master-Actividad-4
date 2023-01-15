@@ -1,0 +1,67 @@
+<div class="h-[100vh] w-[100%] fondo bg-cover bg-black border-t-[1px] drop-shadow-sm">
+    <div class="contenedor bg-[#DEFDFB] rounded-[3px]">
+        <h1 class="text-teal-600 text-center bg-[#DEFDFB]  rounded-[3px]">Formulario | Login </h1>
+        <div class=" bg-[#DEFDFB]">
+            <div class="form">
+                <form (ngSubmit)="onLogin()" action="">
+        
+                    <div >
+                        <label for="type-name" class="text-teal-600">Email</label>
+                        <div  class="text-black " >
+                            
+                            <input 
+                            class="text-black w-[100%]"
+                            appRequiredInfo
+                            type="text"  
+                            placeholder="Ingresa un email aquí" 
+                            required
+                            name="nombre"
+                            [(ngModel)]="formObject.email"
+                            />
+                            <span *ngIf="!formObject.email.match(emailValidatorPattern)" class="text-red-600">* Introduce un email válido</span>
+                            
+                        </div>
+        
+                    </div>
+        
+                    <div class="border-black">
+                        <label for="type-password" class="text-teal-600">Contraseña</label>
+                            <div >
+                                <input 
+                                class="text-black w-[100%]"
+                                appRequiredInfo
+                                type="password" 
+                                placeholder="Ingresa contraseña aquí" 
+                                required
+                                name="constraseña"
+                                [(ngModel)]="formObject.password"
+                                /><span *ngIf="formObject.password.length < 9" class="text-red-600">* Debe tener como mínimo 9 caracteres</span>
+                                    
+                            </div>
+                        
+                    </div>
+                  
+                    <div class="text-black" *ngIf="onValidateBtn"> 
+        
+                        <div class="text-black">
+                            <div class="text-black"></div>
+                            <h2 >Datos de Autenticación</h2>
+                                <p class="w-[100%]">Correo: <input type="text" 
+                                                                    class="text-black w-[100%]" [value]="email"  disabled></p>
+                                <p class="w-[100%]">Contraseña : <input type="text" 
+                                                                    class="text-black w-[100%]" [value]="password" disabled></p>
+                        </div>
+        
+                    </div>
+        
+                    <div >
+                        <button class="bg-[#DEFDFB]  text-teal-600 w-[100%] cursor-pointer  border-teal-800" (click)="isVisibleButton()" type="submit"  >
+                           {{onValidateBtn ? 'Atrás': 'Login | Acceso'}} 
+                        </button>
+                    </div>
+        
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<mat-toolbar class="bg-gradient-to-t from-[#DEFDFB] via-[#DEFDFB] to-[#DEFDFB] border-b-[1px] border-teal-600 flex justify-items-center z-5">
+    <mat-toolbar-row class="flex flex-row justify-evenly">
+      <p class="text-[40px] bg-gradient-to-r from-gray-500 to-teal-600 bg-clip-text text-transparent hover:text-gray-900 font-[-apple-system]"><img class="border-[1px] border-teal-600 h-[120px] mt-[10px] w-[120px] rounded-[50%]" src="../../../assets/img/Joseba IT.png"></p>
+        <ul>
+
+          <li><button mat-button class=" px-[16px] absolute right-2 bg-gradient-to-r from-gray-600 to-teal-600 bg-clip-text text-transparent group
+             hover:text-gray-900 bold" (click)="opened=!opened"><mat-icon class="text-[30px] group-hover:scale-[1.05]">menu</mat-icon></button></li>
+          <li class="mx-3 px-3 "><button mat-button appHoverStyle *ngFor="let item of itemsMenu" class="inline-block py-1 p-x3 text-teal-600  mx-4 text-center text-outline font-semibold   items-center font-[-apple-system] group hover:scale-[1]" [routerLink]="item.routerLink">
+            <span  class="group-hover:scale-[1]"> <i class="{{item.icon}} text-[20px] px-1 mx-1 border-r-2 border-teal-600  bg-clip-text text-teal-600 font-semibold group-hover:text-white group-hover:border-white group-hover:text-[25px] group-hover:transition-[0.5s]"></i> </span> {{item.titulo}}</button> 
+          </li>
+        </ul>    
+      </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-sidenav-container>
+    <mat-sidenav  [(opened)]="opened" mode="over"
+    class=" w-[15%] flex flex-1 bg-gradient-to-t from-gray-200 via-teal-100 to-[#DEFDFB] font-semibold  justify-start">
+      <mat-list>
+        <mat-list-item  *ngFor="let item of itemsMenu" class="flex  justify-end group">
+            <a appHoverStyle [href]="item.routerLink" class="py-2  
+            text-teal-600 flex flex-1 cursor-pointer items-center justify-items-start text-center font-[-apple-system] font group-hover:scale-[1]"
+          ><i class="{{item.icon}} text-[25px] px-1 mx-1 border-r-2 border-teal-600 font-semibold justify-evenly group-hover:border-white group-hover:text-[30px]"></i> {{item.titulo}} </a>
+          </mat-list-item>
+      </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+      
+    </mat-sidenav-content>
+  </mat-sidenav-container>

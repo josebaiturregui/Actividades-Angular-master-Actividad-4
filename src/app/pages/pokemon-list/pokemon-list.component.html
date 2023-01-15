@@ -1,0 +1,19 @@
+
+    <div class="pokemonSelecionado w-[100vw] h-[100%] bg-white">
+        <h1 class="text-black">Listado de Pokemones:</h1>
+        
+        <div class="bg-white text-black" *ngIf="selectPokemon" >
+            <p class="bg-white text-black">El Pokemon Seleccionado es:</p> 
+            <h3 role="tooltip" class="text-black">{{ selectPokemon.name | uppercase}}</h3>
+        </div>
+    </div>
+
+<div class="h-[100%] w-[100%] grid grid-cols-4 gap-[30px] items-center bg-white ">
+    
+    <app-pokemon-card *ngFor="let pokemon of pokemonsList"
+        [pokemonsList]="pokemon"
+        (sendPokemons)="receivePokemons"></app-pokemon-card>
+   
+
+</div>
+
